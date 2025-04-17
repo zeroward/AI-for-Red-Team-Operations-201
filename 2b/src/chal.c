@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+void win() {
+    char enc[] = {0xd4, 0xde, 0xd3, 0xd5, 0xe9, 0xd1, 0xf3, 0xfc, 0xce, 0xb5, 0xe6, 0xcd, 0xe1, 0xe6, 0xe0, 0xfb, 0xfc, 0xf5, 0xe1, 0xcd, 0xe6, 0xfa, 0xfb, 0xe1, 0xcd, 0xfd, 0xfc, 0xf7, 0xef};
+    char key = 0x92;
+    int len = sizeof(enc);
+
+    printf("Flag: ");
+    for (int i = 0; i < len; i++) {
+        printf("%c", enc[i] ^ key);
+    }
+    printf("\n");
+}
+
+void vuln() {
+    char buf[32];
+    printf("Say something: ");
+    gets(buf);
+}
+
+int main() {
+    vuln();
+    printf("Bye!\n");
+    return 0;
+}
